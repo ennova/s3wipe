@@ -2,10 +2,11 @@ FROM debian:buster-slim
 
 WORKDIR /opt/s3wipe
 
-RUN apt-get -y update
-RUN apt-get -y install python-boto
+RUN \
+  apt-get -y update && \
+  apt-get -y install python-boto && \
+  rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 COPY . ./
-RUN chmod 755 s3wipe
 
 ENTRYPOINT ["./s3wipe"]
