@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster-slim
 
 WORKDIR /opt/s3wipe
 
